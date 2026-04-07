@@ -1,6 +1,7 @@
 import React, {useState, createRef} from "react";
 import "./ExperienceCard.scss";
 import ColorThief from "colorthief";
+import { IMAGE_BASE } from "../../portfolio";
 
 export default function ExperienceCard({cardInfo, isDark}) {
   const [colorArrays, setColorArrays] = useState([]);
@@ -42,7 +43,7 @@ export default function ExperienceCard({cardInfo, isDark}) {
           crossOrigin={"anonymous"}
           ref={imgRef}
           className="experience-roundedimg"
-          src={cardInfo.companylogo}
+          src={`${IMAGE_BASE}/${cardInfo.companylogo}`}
           alt={cardInfo.company}
           onLoad={() => getColorArrays()}
         />

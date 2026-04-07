@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import "./StartupProjects.scss";
-import {bigProjects, getPortfolioData} from "../../portfolio";
+import {bigProjects, getPortfolioData, IMAGE_BASE} from "../../portfolio";
 import {Fade} from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
@@ -48,7 +48,7 @@ export default function StartupProject() {
                   {project.image ? (
                     <div className="project-image">
                       <img
-                        src={project.image}
+                        src={`${IMAGE_BASE}/${project.image}`}
                         alt={project.projectName}
                         className="card-image"
                       ></img>

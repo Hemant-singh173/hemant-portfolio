@@ -2,6 +2,7 @@ import React, {createRef, useContext} from "react";
 import {Fade, Slide} from "react-reveal";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
+import { IMAGE_BASE } from "../../portfolio";
 
 export default function EducationCard({school}) {
   const imgRef = createRef();
@@ -29,7 +30,7 @@ export default function EducationCard({school}) {
                 crossOrigin={"anonymous"}
                 ref={imgRef}
                 className="education-roundedimg"
-                src={school.logo}
+                src={`${IMAGE_BASE}/${school.logo}`}
                 alt={school.schoolName}
               />
             </div>

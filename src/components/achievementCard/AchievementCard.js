@@ -1,5 +1,6 @@
 import React from "react";
 import "./AchievementCard.scss";
+import { IMAGE_BASE } from "../../portfolio";
 
 export default function AchievementCard({cardInfo, isDark}) {
   function openUrlInNewTab(url, name) {
@@ -15,7 +16,7 @@ export default function AchievementCard({cardInfo, isDark}) {
     <div className={isDark ? "dark-mode certificate-card" : "certificate-card"}>
       <div className="certificate-image-div">
         <img
-          src={cardInfo.image}
+          src={`${IMAGE_BASE}/${cardInfo.image}`}
           alt={cardInfo.imageAlt || "Card Thumbnail"}
           className="card-image"
         ></img>

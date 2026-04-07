@@ -6,7 +6,8 @@ import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 // Splash Screen
 let portfolioData = null;
-
+const IMAGE_BASE =
+"https://hemant-portfolio-s3.s3.eu-north-1.amazonaws.com/images";
 export const loadPortfolioData = async () => {
 
   if (portfolioData) {
@@ -424,5 +425,6 @@ export {
   twitterDetails,
   isHireable,
   resumeSection,
-  portfolioData
+  portfolioData,
+  IMAGE_BASE
 };
