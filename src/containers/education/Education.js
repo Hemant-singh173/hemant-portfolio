@@ -1,15 +1,17 @@
 import React from "react";
 import "./Education.scss";
 import EducationCard from "../../components/educationCard/EducationCard";
-import {educationInfo} from "../../portfolio";
+import {getPortfolioData } from "../../portfolio";
 
 export default function Education() {
-  if (educationInfo.display) {
+     const data = getPortfolioData();
+    console.log("data", data);
+  if (data.experience.educationInfo.display) {
     return (
       <div className="education-section" id="education">
         <h1 className="education-heading">Education</h1>
         <div className="education-card-container">
-          {educationInfo.schools.map((school, index) => (
+          {data?.experience?.educationInfo?.schools.map((school, index) => (
             <EducationCard key={index} school={school} />
           ))}
         </div>

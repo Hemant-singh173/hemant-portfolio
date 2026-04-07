@@ -4,9 +4,29 @@
 
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
-
 // Splash Screen
+let portfolioData = null;
 
+export const loadPortfolioData = async () => {
+
+  if (portfolioData) {
+    return portfolioData; // already loaded
+  }
+
+  const response = await fetch(
+    "https://5tcwapz4ch.execute-api.eu-north-1.amazonaws.com/dev/user/experiences/1"
+  );
+
+  const apiData = await response.json();
+  console.log("API Data:", apiData[0]);
+  portfolioData = {
+      experience: apiData[0]
+    }
+
+  return portfolioData;
+};
+
+export const getPortfolioData = () => portfolioData;
 const splashScreen = {
   enabled: true, // set false to disable splash screen
   animation: splashAnimation,
@@ -20,8 +40,8 @@ const illustration = {
 };
 
 const greeting = {
-  username: "Saad Pasta",
-  title: "Hi all, I'm Saad",
+  username: "Hemant Bisht",
+  title: "Hi all, I'm Hemant",
   subTitle: emoji(
     "A passionate Full Stack Software Developer 🚀 having an experience of building Web and Mobile applications with JavaScript / Reactjs / Nodejs / React Native and some other cool libraries and frameworks."
   ),
@@ -33,13 +53,13 @@ const greeting = {
 // Social Media Links
 
 const socialMediaLinks = {
-  github: "https://github.com/saadpasta",
-  linkedin: "https://www.linkedin.com/in/saadpasta/",
-  gmail: "saadpasta70@gmail.com",
-  gitlab: "https://gitlab.com/saadpasta",
-  facebook: "https://www.facebook.com/saad.pasta7",
-  medium: "https://medium.com/@saadpasta",
-  stackoverflow: "https://stackoverflow.com/users/10422806/saad-pasta",
+  github: "https://github.com/Hemant-singh173",
+  linkedin: "https://www.linkedin.com/in/hemant-singh-56645a16b/",
+  gmail: "singhhemant233@gmail.com",
+  gitlab: "https://github.com/Hemant-singh173",
+  facebook: "https://www.instagram.com/_hemant_pb11/",
+  medium: "https://medium.com/@singhhemant233",
+  stackoverflow: "https://stackoverflow.com/users/31151760/hemant-singh",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -372,8 +392,8 @@ const contactInfo = {
   title: emoji("Contact Me ☎️"),
   subtitle:
     "Discuss a project or just want to say hi? My Inbox is open for all.",
-  number: "+92-0000000000",
-  email_address: "saadpasta70@gmail.com"
+  number: "8146446698",
+  email_address: "singhhemant233@gmail.com"
 };
 
 // Twitter Section
@@ -403,5 +423,6 @@ export {
   contactInfo,
   twitterDetails,
   isHireable,
-  resumeSection
+  resumeSection,
+  portfolioData
 };
